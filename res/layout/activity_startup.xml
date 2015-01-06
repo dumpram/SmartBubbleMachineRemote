@@ -1,0 +1,165 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:paddingTop="40dp"
+    tools:context="com.github.dumpram.abt.StartupActivity" >
+
+   
+   	
+    <!--
+         This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows.
+    -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true" >
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent" >
+            <Button
+                android:id="@+id/left_button"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/pair_button" />
+
+            <Button
+                android:id="@+id/center_button"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/connect_button" />
+
+            <Button 
+                android:id="@+id/help_button"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/help_button"
+                />
+        </LinearLayout> 
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+           
+            
+        
+        <TextView
+             android:id="@+id/ac"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/ac_control"
+             android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+          <Switch
+             android:id="@+id/ac_control"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="5dp" />
+          
+          <TextView
+             android:id="@+id/dc"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:text="@string/dc_control"
+             android:textAppearance="?android:attr/textAppearanceMedium" />
+          
+         <SeekBar
+             android:id="@+id/dc_control"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content" 
+             android:layout_marginTop="5dp"
+             />
+         
+         <TextView
+             android:id="@+id/fuel"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:text="@string/fuel_level"
+             android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+         <SeekBar
+             android:id="@+id/fuel_level"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content" />
+         
+          <TextView
+             android:id="@+id/time"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:text="@string/time"
+             android:textAppearance="?android:attr/textAppearanceMedium" />
+          
+          <TextView
+             android:id="@+id/status"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:text="@string/status"
+             android:textAppearance="?android:attr/textAppearanceMedium" />
+          
+		  <TextView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/logo"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#33b5e5"
+            android:gravity="center|top"
+            android:alpha="0.4"
+            android:textSize="35sp"
+        	android:textStyle="bold" />
+            
+         
+<!--          <TextView -->
+<!--              android:id="@+id/terminal_rx" -->
+<!--              android:layout_width="match_parent" -->
+<!--         	 android:layout_height="0dp" -->
+<!--         	 android:layout_weight="1" -->
+<!--         	 android:layout_marginRight="10dp" -->
+<!--         	 android:layout_marginBottom="10dp" -->
+<!--         	 android:layout_marginTop="30dp" -->
+<!--         	 android:alpha="0.9" -->
+<!--        		 android:scrollbars="vertical" -->
+<!--         	 android:gravity="bottom" -->
+<!--              style="@style/terminal" /> -->
+         
+<!--          <EditText -->
+<!--              android:id="@+id/terminal_tx" -->
+<!--              android:background="@drawable/textlines" -->
+<!--         	 android:layout_marginRight="10dp" -->
+<!--         	 android:paddingLeft="4dp" -->
+<!--              android:layout_width="match_parent" -->
+<!--              android:layout_height="wrap_content" -->
+<!--              android:layout_marginBottom="55dp" -->
+<!--              android:inputType="text" -->
+<!--              android:ems="10" /> -->
+         
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+</FrameLayout>

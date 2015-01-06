@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SBMRemote</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="instructions">dumpRAM</string>
+    <string name="pair_button">Pair device</string>
+    <string name="connect_button">Connect device</string>
+    <string name="help_button">Help</string>
+    <string name="dummy_content"></string>
+    <string name="send">Send</string>
+    <!-- 1. step: Pair Device\n2. step: Connect Device\n3. step -->
+    <!-- : Enjoy the ride -->
+    <string name="title_activity_pair">PairActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="pair_list">devices in range</string>
+    <string name="title_activity_connect">ConnectActivity</string>
+    <string name="connect_list">connectable devices</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="help_title">How to use</string>
+    <string name="help_step1">Pair device you want to connect to.</string>
+    <string name="help_step2">After device is successfully paired it will be listed on list of connectable devices.</string>
+    <string name="help_step3">Connect device, receive or transmit data.</string>
+    <string name="ac_control">AC Switch</string>
+    <string name="dc_control">DC Speed Control</string>
+    <string name="fuel_level">Fuel level</string>
+    <string name="logo">SBMRemote</string>
+    <string name="time">Current time: HH/MM/SS</string>
+    <string name="status">Connection status: Disconnected</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+</resources>
