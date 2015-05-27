@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Activity displays help, how to use instructions.
+ * Aktivnost prikazuje upute za korištenje aplikacije. Korisnik klikom na item
+ * u listi prelazi u sljedeću aktivnost.
+ * 
  * @author Ivan Pavic
  *
  */

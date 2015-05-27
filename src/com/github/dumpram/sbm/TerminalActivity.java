@@ -16,10 +16,14 @@ import com.github.dumpram.sbm.util.listeners.AlternateFunctionListener;
 
 
 /**
- * Main Activity in application. Contains terminal, action buttons
- * which change Activity.
- *
- * @author Ivan Pavi�
+ * Aktivnost je sučelje za upravljanje ulaznim i izlaznim tokom podataka bluetooth veze.
+ * Sučelje ima 3 tipke sa po 2 funkcije u ovisnosti da li je korisnik spojen bluetoothom
+ * na uređaj ili je odspojen. Funkcije su Connect koja otvara {@link ConnectActivity}, 
+ * Pair koja otvora {@link PairActivity} te Help koja otvara {@link HelpActivity}. Ostale
+ * tipke su Send koja šalje podatke upisane u prozor za slanje te Disconnect koja odspaja
+ * uređaj s terminala.
+ * 
+ * @author Ivan Pavić
  */
 public class TerminalActivity extends Activity {
 
@@ -45,7 +49,13 @@ public class TerminalActivity extends Activity {
 		final EditText terminalTx = (EditText) findViewById(R.id.terminal_tx);
 		
 		
+		initButtons(leftButton, centerButton, helpButton, terminalRx);
+		
+		
 		terminalRx.setMovementMethod(new ScrollingMovementMethod());
+		
+		
+		
 		ConnectionHandler.getInstance().addBluetoothConnectionListener(new BluetoothConnectionListener() {
 			
 			@Override
@@ -65,12 +75,10 @@ public class TerminalActivity extends Activity {
 			
 			@Override 
 			public void stateChanged() {
-				boolean isConnected = ConnectionHandler.getInstance().isConnected();
-				leftButton.setText((isConnected)? "Send" : "Pair device");
-				centerButton.setText((isConnected)? "Disconnect" : "Connect device");
-				helpButton.setText((isConnected)? "Clear" : "Help");
-				terminalRx.setText("");
+				initButtons(leftButton, centerButton, helpButton, terminalRx);
 			}
+
+
 		});
 		
 		leftButton.setOnClickListener(new AlternateFunctionListener() {
@@ -121,5 +129,24 @@ public class TerminalActivity extends Activity {
 			}
 		});
 		
+	}
+	
+	/**
+	 * Metoda inicijalizira sučelje odnosno tipke koje omogućavaju
+	 * alternirane funkcije. Za više informacije pogledajte {@link TerminalActivity}.
+	 * 
+	 * @param leftButton
+	 * @param centerButton
+	 * @param helpButton
+	 * @param terminalRx
+	 */
+	private void initButtons(final Button leftButton,
+		final Button centerButton, final Button helpButton,
+		final TextView terminalRx) {
+		boolean isConnected = ConnectionHandler.getInstance().isConnected();
+		leftButton.setText((isConnected)? "Send" : "Pair device");
+		centerButton.setText((isConnected)? "Disconnect" : "Connect device");
+		helpButton.setText((isConnected)? "Clear" : "Help");
+		terminalRx.setText("");
 	}
 }

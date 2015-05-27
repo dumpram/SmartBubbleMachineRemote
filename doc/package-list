@@ -1,0 +1,6 @@
+com.github.dumpram.sbm
+com.github.dumpram.sbm.adapter
+com.github.dumpram.sbm.settings
+com.github.dumpram.sbm.util.bluetooth
+com.github.dumpram.sbm.util.bluetooth.exceptions
+com.github.dumpram.sbm.util.listeners

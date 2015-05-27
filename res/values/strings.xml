@@ -26,8 +26,24 @@
     <string name="dc_control">DC Speed Control</string>
     <string name="fuel_level">Fuel level</string>
     <string name="logo">SBMRemote</string>
-    <string name="time">Current time: HH/MM/SS</string>
+    <string name="current_time">Current time: HH/MM/SS</string>
     <string name="status">Connection status: Disconnected</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="bluetooth_settings">Bluetooth settings</string>
+    <string name="bluetooth_name">Module name</string>
+    <string name="bluetooth_pswd">Module password</string>
+    <string name="wifi_settings">Wifi settings</string>
+    <string name="ssid">SSID</string>
+    <string name="wep">WEP</string>
+    <string name="wpa">WPA</string>
+    <string name="rtc">RTC</string>
+    <string name="settings_list">settings</string>
+    <string name="title_activity_bluetooth_settings">BluetoothSettingsActivity</string>
+    <string name="OK_button">OK</string>
+    <string name="title_activity_wi_fly_settings">WiFlySettingsActivity</string>
+    <string name="title_activity_rtcsettings">RTCSettingsActivity</string>
+    <string name="apply_button">Apply changes</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
 
 </resources>

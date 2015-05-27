@@ -18,8 +18,10 @@ import com.github.dumpram.sbm.util.bluetooth.exceptions.DeviceNotConnectedExcept
 import com.github.dumpram.sbm.adapter.*;
 
 /**
- * Activity displays list of connectable devices. By clicking device user connects to it. 
- * @author Ivan Pavic
+ * Aktivnost prikazuje listu povezivih uređaja. Korisnik se spaja na uređaja pritskom
+ * na željeni uređaj u listi. 
+ * 
+ * @author Ivan Pavić
  *
  */
 public class ConnectActivity extends Activity {

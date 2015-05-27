@@ -1,5 +1,7 @@
 package com.github.dumpram.sbm.adapter;
 
+import com.github.dumpram.sbm.ConnectActivity;
+import com.github.dumpram.sbm.PairActivity;
 import com.github.dumpram.sbm.R;
 
 import android.bluetooth.BluetoothDevice;
@@ -11,9 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 /**
- * ArrayAdapter for list of Bluetooth devices. Displays Bluetooth device name 
- * and address.
- * @author Ivan Pavic
+ * Klasa predstavlja adpater za bluetooth uređaje u listi. Koristi se 
+ * u klasama koje izlistavaju bluetooth uređaje. To su {@link ConnectActivity} i
+ * {@link PairActivity}.
+ * 
+ * @author Ivan Pavić
  *
  */
 public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {

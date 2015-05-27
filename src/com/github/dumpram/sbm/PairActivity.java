@@ -17,7 +17,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.github.dumpram.sbm.adapter.BluetoothDeviceAdapter;
 
 /**
- * Activity displays list of pairable devices.
+ * Aktivnost prikazuje listu uređaja s kojim se uređaj može upariti. Uparivanje se
+ * vrši pritiskom na željeni uređaj.
+ * 
  * @author Ivan Pavic
  *
  */
