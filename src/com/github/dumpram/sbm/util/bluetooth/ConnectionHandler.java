@@ -7,6 +7,7 @@ import java.util.List;
 import com.github.dumpram.sbm.util.bluetooth.exceptions.DeviceNotConnectedException;
 
 import android.bluetooth.BluetoothDevice;
+
 /**
  * Klasa je singleton razred što znači da postoji samo jedna njezina instanca u čitavom
  * programu. Ona jedina smije spajati odspajati uređaje nakon što joj drugi razredi
@@ -79,10 +80,13 @@ public class ConnectionHandler {
 	 */
 	public void connect(BluetoothDevice remoteDevice) throws IOException, DeviceNotConnectedException {
 		connection = new BluetoothConnection(remoteDevice, bListeners);
-		if (!connection.getSocket().isConnected()) {
-			connection = null;
-			throw new DeviceNotConnectedException();
-		}
+        // API 14 podrzava provjeru statusa socketa
+        if (Integer.valueOf(android.os.Build.VERSION.SDK_INT) >= 14) {
+            if (!connection.getSocket().isConnected()) {
+                connection = null;
+                throw new DeviceNotConnectedException();
+            }
+        }
 		connection.start();
 		fireConnectionStateChanged();
 	}

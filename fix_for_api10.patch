@@ -1,0 +1,82 @@
+commit 7ee020f3023e4e15ba8c64ac58a4aa45449061a5
+Author: igor <igorsocec@gmail.com>
+Date:   Thu May 28 10:40:10 2015 +0200
+
+    fix for API 10
+
+diff --git a/src/com/github/dumpram/sbm/StartupActivity.java b/src/com/github/dumpram/sbm/StartupActivity.java
+index 14919a0..865dbc1 100644
+--- a/src/com/github/dumpram/sbm/StartupActivity.java
++++ b/src/java/com/github/dumpram/sbm/StartupActivity.java
+@@ -22,6 +22,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
+ import android.widget.Switch;
+ import android.widget.TextView;
+ import android.widget.Toast;
++import android.widget.ToggleButton;
+ 
+ 
+ /**
+@@ -189,7 +190,7 @@ public class StartupActivity extends Activity {
+ 	 * Metoda incijalizira kontrole u grafičkom korisničkom sučelju.
+ 	 */
+ 	void initControls() {
+-		final Switch acSwitch = (Switch) findViewById(R.id.ac_control);
++        final ToggleButton acSwitch = (ToggleButton) findViewById(R.id.ac_control);
+ 		final SeekBar dcControl = (SeekBar) findViewById(R.id.dc_control);
+ 		final SeekBar fuelLevel = (SeekBar) findViewById(R.id.fuel_level);
+ 		final TextView currentTime = (TextView) findViewById(R.id.time);
+diff --git a/src/com/github/dumpram/sbm/util/bluetooth/ConnectionHandler.java b/src/com/github/dumpram/sbm/util/bluetooth/ConnectionHandler.java
+index 3313774..dd9c502 100644
+--- a/src/com/github/dumpram/sbm/util/bluetooth/ConnectionHandler.java
++++ b/src/com/github/dumpram/sbm/util/bluetooth/ConnectionHandler.java
+@@ -7,6 +7,7 @@ import java.util.List;
+ import com.github.dumpram.sbm.util.bluetooth.exceptions.DeviceNotConnectedException;
+ 
+ import android.bluetooth.BluetoothDevice;
++
+ /**
+  * Klasa je singleton razred što znači da postoji samo jedna njezina instanca u čitavom
+  * programu. Ona jedina smije spajati odspajati uređaje nakon što joj drugi razredi
+@@ -79,10 +80,13 @@ public class ConnectionHandler {
+ 	 */
+ 	public void connect(BluetoothDevice remoteDevice) throws IOException, DeviceNotConnectedException {
+ 		connection = new BluetoothConnection(remoteDevice, bListeners);
+-		if (!connection.getSocket().isConnected()) {
+-			connection = null;
+-			throw new DeviceNotConnectedException();
+-		}
++        // API 14 podrzava provjeru statusa socketa
++        if (Integer.valueOf(android.os.Build.VERSION.SDK_INT) >= 14) {
++            if (!connection.getSocket().isConnected()) {
++                connection = null;
++                throw new DeviceNotConnectedException();
++            }
++        }
+ 		connection.start();
+ 		fireConnectionStateChanged();
+ 	}
+diff --git a/res/layout/activity_startup.xml b/res/layout/activity_startup.xml
+index dd49bbc..db8db58 100644
+--- a/res/layout/activity_startup.xml
++++ b/res/layout/activity_startup.xml
+@@ -64,13 +64,13 @@
+              android:layout_height="wrap_content"
+              android:text="@string/ac_control"
+              android:textAppearance="?android:attr/textAppearanceMedium" />
+-            
+-          <Switch
+-             android:id="@+id/ac_control"
+-             android:layout_width="wrap_content"
+-             android:layout_height="wrap_content"
+-             android:layout_marginTop="5dp" />
+-          
++
++        <ToggleButton
++            android:id="@+id/ac_control"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="5dp" />
++
+           <TextView
+              android:id="@+id/dc"
+              android:layout_width="wrap_content"

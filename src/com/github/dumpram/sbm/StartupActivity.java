@@ -1,7 +1,6 @@
 package com.github.dumpram.sbm;
 import java.io.IOException;
 
-import com.github.dumpram.sbm.HelpActivity;
 import com.github.dumpram.sbm.R;
 import com.github.dumpram.sbm.util.bluetooth.BluetoothConnectionListener;
 import com.github.dumpram.sbm.util.bluetooth.ConnectionHandler;
@@ -19,9 +18,9 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 
 /**
@@ -189,7 +188,7 @@ public class StartupActivity extends Activity {
 	 * Metoda incijalizira kontrole u grafičkom korisničkom sučelju.
 	 */
 	void initControls() {
-		final Switch acSwitch = (Switch) findViewById(R.id.ac_control);
+        final ToggleButton acSwitch = (ToggleButton) findViewById(R.id.ac_control);
 		final SeekBar dcControl = (SeekBar) findViewById(R.id.dc_control);
 		final SeekBar fuelLevel = (SeekBar) findViewById(R.id.fuel_level);
 		final TextView currentTime = (TextView) findViewById(R.id.time);
